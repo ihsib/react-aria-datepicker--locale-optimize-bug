@@ -1,13 +1,15 @@
-import {Button, Calendar, CalendarCell, CalendarGrid, CalendarGridBody, CalendarGridHeader, CalendarHeaderCell, DateInput, DatePicker, DateSegment, Dialog, Group, Heading, Label, Popover, I18nProvider} from 'react-aria-components';
-import type {ButtonProps, PopoverProps} from 'react-aria-components';
+import {Button, Calendar, CalendarCell, CalendarGrid, CalendarGridBody, CalendarGridHeader, CalendarHeaderCell, DateInput, DatePicker, DateSegment, Dialog, Group, Heading, Label, Popover} from 'react-aria-components';
+import {ButtonProps, PopoverProps, useLocale} from 'react-aria-components';
 
+// find the DatePickerExample component
 
 
 export default function DatePickerExample() {
+  const {locale} = useLocale();
   return (
     <div className="bg-gradient-to-r from-violet-500 to-fuchsia-600 p-12 sm:h-[400px] rounded-lg flex items-start justify-center">
-      <I18nProvider locale="sv-SE">
-        <DatePicker className="group flex flex-col gap-1 w-[200px]" isDateUnavailable={() => true}>
+   
+        <DatePicker className="group flex flex-col gap-1 w-[200px]">
           <Label className="text-white cursor-default">Date</Label>
           <Group className="flex rounded-lg bg-white/90 focus-within:bg-white group-open:bg-white transition pl-3 shadow-md text-gray-700 focus-visible:ring-2 ring-black">
             <DateInput className="flex flex-1 py-2">
@@ -55,7 +57,7 @@ export default function DatePickerExample() {
             </Dialog>
           </MyPopover>
         </DatePicker>
-      </I18nProvider>
+   
     </div>
   );
 }

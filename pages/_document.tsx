@@ -1,11 +1,13 @@
-import { Html, Head, Main, NextScript } from "next/document";
+import { Html, Head, Main, NextScript, DocumentProps } from "next/document";
+import {LocalizedStringProvider} from 'react-aria-components/i18n';
 
-export default function Document() {
+export default function Document(props: DocumentProps) {
   return (
-    <Html lang="en">
+    <Html lang={props.locale}>
       <Head />
       <body>
         <Main />
+        <LocalizedStringProvider locale={props.locale!} />
         <NextScript />
       </body>
     </Html>
